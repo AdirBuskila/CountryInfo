@@ -6,17 +6,26 @@ const input = document.querySelector('.country-input')
 const countriesContainer = document.querySelector('.countries');
 const dashboard = document.querySelector('.dashboard-container')
 
+
+
 const renderCountry = (data, className = '') => {
-    const { flag, name, region, population, languages, currencies } = data
+    console.log(data);
+    const { flag, name, nativeName, region, capital, population, languages, currencies, area } = data
     const html = `
         <article class="country ${className}">
         <img class="country__img" src="${flag}" />
         <div class="country__data">
+        <div class="country__names">
         <h3 class="country__name">${name}</h3>
+        <h3>-<h3>
+        <h3 class="country__name">${nativeName}</h3>
+        </div>
         <h4 class="country__region">${region}</h4>
+        <p class="country__row"><span>⭐</span>${capital} (capital)</p>
         <p class="country__row"><span>👫</span>${(+population / 1000000).toFixed(1)} M people</p>
         <p class="country__row"><span>🗣️</span>${languages[0].name}</p>
         <p class="country__row"><span>💰</span>${currencies[0].name}</p>
+        <p class="country__row"><span>🏡</span>${numberWithCommas(area)} km²</p>
         </div>
         </article>
         `;
@@ -25,6 +34,8 @@ const renderCountry = (data, className = '') => {
 
 
 }
+
+
 
 const resetView = () => {
     countriesContainer.innerHTML = input.value = ''
@@ -97,15 +108,19 @@ const renderError = (msg) => {
 }
 
 btn.addEventListener('click', whereAmI)
-document.addEventListener('keydown', function(e){
+document.addEventListener('keydown', function (e) {
     if (e.code === 'Enter') {
         getCountry(input.value)
         toggleView()
     }
 })
 
-btnReset.addEventListener('click', ()=> {
+btnReset.addEventListener('click', () => {
     toggleView()
     resetView()
 })
 
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
