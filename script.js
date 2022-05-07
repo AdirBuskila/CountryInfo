@@ -2,7 +2,7 @@
 
 const btn = document.querySelector('.btn-country');
 const btnReset = document.querySelector('.btn-reset');
-const btnEnter = document.querySelector('.enter')
+const btnEnter = document.querySelector('.btn-enter')
 const input = document.querySelector('.country-input')
 const countriesContainer = document.querySelector('.countries');
 const dashboard = document.querySelector('.dashboard-container')

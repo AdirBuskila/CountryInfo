@@ -120,7 +120,7 @@ h3.country__name {
 }
 
 .btn-country,
-.btn-reset {
+.btn-reset,.btn-enter {
   border: none;
   font-size: 22px;
   padding: 2rem 5rem;
@@ -132,13 +132,6 @@ h3.country__name {
 }
 .enter {
   margin-top: 20px;
-  border: none;
-  font-size: 22px;
-  padding: 2rem 5rem;
-  border-radius: 0.7rem;
-  color: white;
-  background-color: orangered;
-  cursor: pointer;
 }
 
 .btn-reset{
