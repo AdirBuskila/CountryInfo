@@ -2,6 +2,7 @@
 
 const btn = document.querySelector('.btn-country');
 const btnReset = document.querySelector('.btn-reset');
+const btnEnter = document.querySelector('.enter')
 const input = document.querySelector('.country-input')
 const countriesContainer = document.querySelector('.countries');
 const dashboard = document.querySelector('.dashboard-container')
@@ -107,6 +108,12 @@ const renderError = (msg) => {
 
 }
 
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
 btn.addEventListener('click', whereAmI)
 document.addEventListener('keydown', function (e) {
     if (e.code === 'Enter') {
@@ -120,7 +127,8 @@ btnReset.addEventListener('click', () => {
     resetView()
 })
 
+btnEnter.addEventListener('click', () => {
+    getCountry(input.value)
+    toggleView()
+})
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
